@@ -1,0 +1,1 @@
+Add authenticated native Decisions and System One dispatch through existing connections, preserving their wire formats, key scope, injection protection, bounded transport and unknown-cost accounting. Preserve legacy System One aliases; reject native-only transports on chat.

@@ -351,6 +351,10 @@ export async function calculateCostDetailed(
   tokens: CostTokenUsage | null | undefined,
   options: CostCalculationOptions = {}
 ): Promise<CostCalculationResult> {
+  // A native decision without usage is still unpriced, rather than a free call.
+  if (options.serviceTier === "decision-native" && extractExactCostUsd(tokens) === null) {
+    return { costUsd: 0, priced: false };
+  }
   if (!tokens || !provider || !model) return { costUsd: 0, priced: true };
 
   // Short-circuit before any pricing DB lookup when an exact, provider-reported

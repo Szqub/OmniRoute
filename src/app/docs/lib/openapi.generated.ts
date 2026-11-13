@@ -1509,6 +1509,28 @@ export const OPENAPI_ENDPOINTS: OpenApiEndpoint[] = [
     requiresAuth: true,
     hasRequestBody: true,
   },
+  {
+    path: "/v1/decisions",
+    method: "POST",
+    summary: "Invoke a native OpenAI Decisions model",
+    description:
+      "Requires a client API key. Input and native answers are preserved. Cross-format translation is unsupported.",
+    tag: "Decisions",
+    tags: ["Decisions"],
+    requiresAuth: true,
+    hasRequestBody: true,
+  },
+  {
+    path: "/v1/systemone",
+    method: "POST",
+    summary: "Invoke a native System One model",
+    description:
+      "Native noul, choice and score questions. No conversion to chat or OpenAI Decisions. Native extensions require a client key and qualified model; legacy TypeSafe/OpenRouter aliases and key policy are preserved.",
+    tag: "Decisions",
+    tags: ["Decisions"],
+    requiresAuth: true,
+    hasRequestBody: true,
+  },
 ];
 
 export const OPENAPI_TAGS: string[] = Array.from(

@@ -51,6 +51,8 @@ const EXPECTED: Record<InventoryKind, Record<string, number>> = {
     // #13987: System One decisions (/v1/systemone), same
     // scoped quota-preflight credential lookup as /v1/classify (class B).
     "src/app/api/v1/_shared/systemOneRoute.ts": 1,
+    // Native decisions: scoped quota preflight, no affinity mutation (class B).
+    "src/app/api/v1/_shared/decisionRuntime.ts": 1,
     // GHSA-3w2r: keyless providers (local zero-config defaults, keyless
     // remotes) look up an in-scope connection for a connection-scoped API key
     // before running (chat's #9057 rule) — one extra scoped lookup per site.
