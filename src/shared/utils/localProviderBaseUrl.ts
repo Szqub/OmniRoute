@@ -8,6 +8,11 @@ export function resolveLocalProviderBaseUrl(
   if (typeof configuredBaseUrl === "string" && configuredBaseUrl.trim()) {
     return configuredBaseUrl;
   }
-  if (!Object.prototype.hasOwnProperty.call(LOCAL_PROVIDERS, provider)) return null;
-  return LOCAL_PROVIDERS[provider as keyof typeof LOCAL_PROVIDERS].localDefault;
+  if (!Object.prototype.hasOwnProperty.call(LOCAL_PROVIDERS, provider)) {
+    return null;
+  }
+  const entry = LOCAL_PROVIDERS[provider as keyof typeof LOCAL_PROVIDERS] as {
+    localDefault?: string | null;
+  };
+  return entry.localDefault ?? null;
 }
